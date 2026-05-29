@@ -69,14 +69,28 @@
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(165deg, var(--navy) 0%, var(--navy-mid) 100%);
-      padding: 80px 32px 72px;
+      position: relative;
+      background-image: url('images/car.png');
+      background-size: cover;
+      background-position: center;
+      padding: 32px 0;
       color: var(--white);
       text-align: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(8, 16, 32, 0.55) 0%, rgba(8, 16, 32, 0.6) 100%);
+      z-index: 0;
     }
     .hero-inner {
+      position: relative;
+      z-index: 1;
       max-width: 720px;
       margin: 0 auto;
+      padding: 0 32px;
     }
     .hero-badge {
       display: inline-block;
@@ -100,12 +114,13 @@
       letter-spacing: -0.3px;
     }
     .hero .slogan {
-      font-size: 28px;
+      font-size: 36px;
       font-weight: 700;
       color: #ffd54f;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       font-style: italic;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.4px;
+      line-height: 1.15;
     }
     .hero p {
       font-size: 15px;
@@ -113,23 +128,6 @@
       color: rgba(255, 255, 255, 0.65);
       max-width: 600px;
       margin: 0 auto;
-    }
-
-    /* ── IMAGE BANNER ── */
-    .image-banner {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 8px 32px 0;
-      text-align: center;
-    }
-    .image-banner img {
-      max-width: 100%;
-      max-height: 700px;
-      object-fit: contain;
-      border-radius: var(--radius);
-      display: inline-block;
-      border: 1px solid var(--border);
-      background: var(--light);
     }
 
     /* ── SECTIONS ── */
@@ -161,23 +159,15 @@
       max-width: 680px;
       line-height: 1.75;
     }
-    /* Tighten gap between Core Product heading and banner image */
-    #product { padding-bottom: 12px; }
+    /* Core Product intro — centered, tightened around hero and next section */
+    #product { text-align: center; padding-top: 32px; padding-bottom: 28px; }
 
     /* ── TWO-COL ── */
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    .two-col img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      background: var(--light);
+      gap: 112px;
+      align-items: start;
     }
 
     /* ── CARDS ── */
@@ -257,7 +247,7 @@
     .cta-inner {
       max-width: 1080px;
       margin: 0 auto;
-      padding: 56px 32px;
+      padding: 36px 32px;
       text-align: center;
     }
     .cta-inner h2 {
@@ -328,7 +318,6 @@
   <header class="hero">
     <div class="hero-inner">
       <p class="slogan">Functional Solutions,<br/>Led by AI</p>
-      <div class="hero-badge">Tier-1 Cabin Systems Supplier</div>
       <h1>AuroraDrive Technologies Co., Ltd.</h1>
       <p>Advancing cabin comfort technology for the next generation of new energy vehicles.</p>
     </div>
@@ -340,15 +329,8 @@
     <h2>Active Cabin Comfort Module (ACCM)</h2>
   </section>
 
-  <!-- BANNER IMAGE -->
-  <div class="image-banner">
-    <img src="images/banner.jpg" alt="Vehicle cabin interior" />
-  </div>
-
-  <div class="divider"><hr /></div>
-
-  <!-- PRODUCT OBJECTIVE -->
-  <section class="section">
+  <!-- PRODUCT OBJECTIVE + DESIGN DECISION APPROACH (side by side) -->
+  <section class="section" id="approach">
     <div class="two-col">
       <div>
         <div class="section-label">Product Objective</div>
@@ -361,16 +343,6 @@
         </ul>
         <p>across operating conditions. The module aims to achieve a reliable balance among energy efficiency, while supporting robustness and consistency in mass production.</p>
       </div>
-      <img src="images/product.jpg" alt="ACCM product close-up" />
-    </div>
-  </section>
-
-  <div class="divider"><hr /></div>
-
-  <!-- DESIGN DECISION APPROACH -->
-  <section class="section" id="approach">
-    <div class="two-col">
-      <img src="images/team.jpg" alt="Engineering team at work" />
       <div>
         <div class="section-label">Design Decision Approach</div>
         <h2>AI at the Core of Decision Making</h2>
@@ -384,7 +356,7 @@
   <section class="cta-section" id="contact">
     <div class="cta-inner">
       <h2>Next Steps</h2>
-      <p>If you would like to learn more about this module or discuss specific application scenarios, please contact us to arrange a technical discussion. Following an initial conversation, we can proceed with NDA execution and the next phase of evaluation as needed.</p>
+      <p>Contact us to arrange a technical discussion. We can then proceed with NDA execution and the next phase of evaluation as needed.</p>
       <p class="contact-email">contact@auroradrive.com</p>
     </div>
   </section>
